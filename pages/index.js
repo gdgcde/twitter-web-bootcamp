@@ -1,5 +1,8 @@
+import { MainBar } from '../src/components/MainBar'
 const Index = () => (
-    <div>Hello world</div>
+  <div>
+    <MainBar />
+  </div>
 )
 
 export default Index
