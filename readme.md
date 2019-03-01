@@ -1,24 +1,12 @@
-# Curso Next.JS React Redux
+# Readme
 
-## Etapa Inicial - first page and component
+## 1. Intalar paquetes
+ ```$ npm install ``` 
+ 
+ O con yarn:
+ 
+ ```$ yarn install```
 
-* First Page
-    - git init
-    - npm init --yes
-    - yarn add next react react-dom
-    - create page folder
-    - create index file in `page` folder
-    - package.json add script
+## 2. Iniciar en modo dev
 
-* First Component
-    - src folder
-    - new component folder
-    - import component to index page
-    - standar js *side note*
-
-## Layout de la App
-
-* React Booststrap
-    - yarn add react-bootstrap bootstrap
-    - import bootstrap to the component
-    - import bootstrap to the document head
+```$ yarn dev```
