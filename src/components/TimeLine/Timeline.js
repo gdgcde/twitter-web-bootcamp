@@ -1,28 +1,54 @@
-import { Container, Row, Col } from 'react-bootstrap'
-import { TwittInput } from '../TwittInput'
-import { TwittCard } from '../TwittCard'
-const twtts = [{
-  username: 'Juan',
-  content: 'Some random text',
-  likes: 12
-},
-{
-  username: 'Juan',
-  content: 'other stuff',
-  likes: 250
-}]
+import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { TwittInput } from "../TwittInput";
+import { TwittCard } from "../TwittCard";
 
-const TimeLine = () => (
-  <Container>
-    <Row className='justify-content-md-center'>
-      <Col md='6'>
-        <TwittInput />
-        {twtts.map((tw, index) => (
-          <TwittCard key={index} item={tw} />
-        ))}
-      </Col>
-    </Row>
-  </Container>
-)
+class TimeLine extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-export default TimeLine
+  // async componentDidMount() {
+  //   this.subcribeToEvents();
+  // }
+
+  // subcribeToEvents = () => {
+  //   const io = socket("http://localhost:5000");
+  //   io.on("tweet", data => {
+  //     let { tweets } = this.state;
+  //     tweets = [data, ...tweets];
+  //     this.setState({ tweets: tweets });
+  //   });
+  //   io.on("like", data => {
+  //     let tweets = this.state.tweets.map(tweet =>
+  //       tweet._id === data._id ? data : tweet
+  //     );
+  //     this.setState({ tweets: tweets });
+  //   });
+  // };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      tweets: nextProps.tweets
+    };
+  }
+
+  render() {
+    const { tweets } = this.props;
+    return (
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md="6">
+            <TwittInput />
+            {tweets.map((tw, index) => (
+              <TwittCard key={index} item={tw} />
+            ))}
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+}
+
+export default TimeLine;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, InputGroup, Button, Row } from 'react-bootstrap'
 import Query from '../../api/Query'
+import Router from 'next/router'
 import styles from './styles'
 class TwittInput extends Component {
   constructor (props) {
@@ -33,6 +34,7 @@ class TwittInput extends Component {
         url: '/tweets',
         data: tweet
       })
+      Router.push('/')
     } catch (error) {
       console.log(error)
     }
@@ -54,7 +56,7 @@ class TwittInput extends Component {
           </Form.Group>
 
           <Button variant='primary' type='submit'>
-            {'Twitt'}
+            {'Twittear'}
           </Button>
 
         </Form>
