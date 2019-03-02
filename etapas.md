@@ -20,5 +20,10 @@
 
 * React Booststrap
     - yarn add react-bootstrap bootstrap
-    - import bootstrap to the component
     - import bootstrap to the document head
+    - Create index components
+
+## Funcionalidades
+    
+* State
+    - to class
