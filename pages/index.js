@@ -3,17 +3,16 @@ import { MainBar } from '../src/components/MainBar'
 import { DocumentHeader } from '../src/components/DocumentHeader'
 import { TimeLine } from '../src/components/TimeLine'
 import Router from 'next/router'
-import Query from "../src/api/Query";
+import Query from '../src/api/Query';
 
 class Index extends Component {
-  
-  static async getInitialProps(context) {
+  static async getInitialProps (context) {
     const res = await Query({
-      method: "GET",
+      method: 'GET',
       url: `/tweets`
-    });
-    console.log("RESPONSE", res)
-    return { tweets: res.data };
+    })
+    console.log('RESPONSE', res)
+    return { tweets: res.data }
   }
   componentDidMount () {
     localStorage.getItem('@GoTwitter:username') === null ? Router.push('/login') : null
