@@ -5,10 +5,14 @@ import Query from '../../api/Query'
 class TwittCard extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      likes: props.item.likes
-    }
+    this.state = {}
     this.handleLike = this.handleLike.bind(this)
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      item: nextProps.item
+    };
   }
 
   async handleLike () {
@@ -26,9 +30,9 @@ class TwittCard extends Component {
       <div className='twitt'>
         <Card>
           <Card.Body>
-            <Card.Title>{this.props.item.username}</Card.Title>
+            <Card.Title>{this.props.item.author}</Card.Title>
             <Card.Text>{this.props.item.content}</Card.Text>
-            <Button onClick={this.handleLike}>Like</Button> <span>{` + ${this.state.likes}`}</span>
+            <Button onClick={this.handleLike}>Like</Button> <span>{` + ${this.props.item.likes}`}</span>
           </Card.Body>
         </Card>
         <style jsx>{`

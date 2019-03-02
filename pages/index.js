@@ -11,7 +11,6 @@ class Index extends Component {
       method: 'GET',
       url: `/tweets`
     })
-    console.log('RESPONSE', res)
     return { tweets: res.data }
   }
   componentDidMount () {
